@@ -1,0 +1,11 @@
+version: '3.0'
+services:
+  nginx:
+    image: openresty/openresty:stretch-fat
+    volumes:
+    - ./nginx/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf
+    - ./client:/www
+    ports:
+    - "80:80"
+  wsserver:
+    build: ./server
